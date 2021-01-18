@@ -27,12 +27,12 @@ function preload(){
 function setup() {
   createCanvas(400, 400);
   
- /* bg = createSprite(400, 200, 20, 20);
+  bg = createSprite(400, 200, 20, 20);
   bg.addImage(bgImage);
-  bg.velocityX = 0;
   bg.width = 5000;
   bg.scale = 800/1003;
-  bg.x = 2500;*/
+  bg.x = 2500;
+  bg.velocityX = 1;
   
   
   monkey = createSprite(100, 320, 200, 200);
@@ -54,7 +54,7 @@ function setup() {
 
 
 function draw() {
-  background("green");
+  background("white");
   if (gameState === PLAY){
     monkey.collide(ground);
   
@@ -87,6 +87,8 @@ function draw() {
   }
 
   camera.position.x = monkey.x;
+  bg.x = monkey.x
+  
 }
 
 function spawnBanana() {
