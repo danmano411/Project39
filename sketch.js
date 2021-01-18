@@ -49,12 +49,12 @@ function setup() {
   foodGroup = new Group();
   obstacleGroup = new Group();
   
-  console.log(bg.width);
+  
 }
 
 
 function draw() {
-  background("black");
+  background("green");
   if (gameState === PLAY){
     monkey.collide(ground);
   
@@ -83,9 +83,10 @@ function draw() {
     bg.destroy();
     stroke("yellow")
     textSize(33);
-    text("You lose!!", 120, 190);
+    text("You lose!!", camera.position.x, 190);
   }
-  
+
+  camera.position.x = monkey.x;
 }
 
 function spawnBanana() {
@@ -117,16 +118,14 @@ function spawnObstacles(){
 }
 
 function drawScore(){
-  stroke("white");
   textSize(20);
   fill("white");
-  text("Score: " + score, 270, 50);
+  text("Score: " + score, camera.position.x - 120, 50);
   
-  stroke("black");
   textSize(20);
-  fill("black");
+  fill("white");
   survivalTime = Math.ceil(frameCount/frameRate());
-  text("Survival Time: " + survivalTime, 100, 50);
+  text("Survival Time: " + survivalTime, camera.position.x + 20, 50);
   
 }
 
